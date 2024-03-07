@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Montserrat:ital,wght@0,400;0,500;1,400&amp;family=Space+Mono&amp;display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&amp;display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./expense.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <header
+            class="fixed-top text-bg-warning text-white mb-sm-5 d-flex flex-wrap align-items-center justify-content-center header justify-content-lg-start"
+            id="header">
+            <div class="container">
+                <p class="text-center text-dark fs-1 m-0 pr-3 fw-bold" id="expense-logo">ExpenseTracker</p>
+                <div id="premium-container" class="text-center">
+                    <p id="premium-user-container"></p>
+                </div>
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-1 justify-content-center mb-md-0" id="nav-links">
+                        <li></li>
+                        <li></li>
+                        <!-- <div id="premium-container" class="text-center"></div> -->
+
+                    </ul>
+                    <div id="premium-container" class="text-center">
+                        <p id="premium-user-container"></p>
+                    </div>
+                    <div class="text-center d-flex align-items-center mb-4" id="buttons">
+                        <div id="leaderboard-container" class="m-3" style="text-align: center;"></div>
+                        <button type="button" class="btn m-2" style="background-color: #dc6052 ;"
+                            id="nav-signout-btn">Sign-out</button>
+                        <button type="button" class="btn m-2 " style="background-color: green ;"
+                            id="buy-premium-btn">Buy Premium</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </header>
+    </nav>
+
+    <div class="d-flex flex-wrap align-items-center justify-content-center">
+        <button type="button" class="btn m-2" style="background-color: rgb(97, 97, 205) ;"
+            id="download-report--btn">Download report</button>
+        <button type="button" class="btn m-2 d-none" style="background-color: rgb(64, 64, 165) ;"
+            id="show-leaderboard-btn">Leaderboard</button>
+        <button type="button" class="btn m-2 d-none" style="background-color: rgb(64, 64, 165) ;"
+            id="show-files-btn">show downloaded files</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <!-- Expense Report Container -->
+            <div class="container mt-5 d-none" id="expense-report">
+                <!-- Expense report content -->
+                <table class="table table-striped table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>file</th>
+                            <th>date downloaded</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Expense Container -->
+            <div class="col-md-6 col-xxl-9 w-100">
+                <div class="container mt-sm-5">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <div class="expense-form">
+                                <h2 class="mb-4">Add Expense</h2>
+                                <form id="expenseForm">
+                                    <div class="mb-3">
+                                        <label for="amount" class="form-label">Expense
+                                            Amount</label>
+                                        <input type="number" class="form-control" id="amount" name="amount" required="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="category" class="form-label">Category</label>
+                                        <select class="form-select" id="category" name="category" required="">
+                                            <option value="food">Food</option>
+                                            <option value="transportation">Transportation</option>
+                                            <option value="housing">Housing</option>
+                                            <option value="entertainment">Entertainment</option>
+                                            <option value="shopping">Shopping</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label">Description</label>
+                                        <textarea class="form-control" id="description" rows="3"
+                                            name="description"></textarea>
+                                    </div>
+                                    <button type="button" class="btn btn-success" id="add-expense-btn">Add
+                                        Expense</button>
+                                </form>
+                            </div>
+
+                            <div class="expense-list">
+                                <h2 class="mt-4">Expense List</h2>
+                                <div id="expenseList"></div>
+                                <div class="total-amount" id="totalAmount">Total Amount: $0.00</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pagination justify-content-center">
+                    <div class="input-group d-md-block">
+                        <button class="btn btn-secondary">No of rows required in a page</button>
+                        <select class="form-select-sm" id="noiteminpage">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                        </select>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-warning border-black" id="prevPage">Previous</button>
+                        <button class="btn btn-success border-black" id="currentPage">1</button>
+                        <button class="btn btn-warning border-black" id="nextPage">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-warning  fixed-bottom text-black text-center py-1">
+        <!-- Footer Content Here -->
+        <div class="alert alert-success d-none text-center fw-bold" role="alert" id="success-alert">
+
+        </div>
+        <div class="alert alert-danger d-none text-center fw-bold" role="alert" id="failure-alert">
+
+        </div>
+        <p>&copy; 2023 ExpenseTracker. All rights reserved.</p>
+    </footer>
+
+
+    <!-- Bootstrap, jQuery, and Axios scripts remain unchanged -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <div class="razorpay-container"
+        style="z-index: 2147483647; position: fixed; top: 0px; display: none; left: 0px; height: 100%; width: 100%; backface-visibility: hidden; overflow-y: visible;">
+        <style>
+            @keyframes rzp-rot {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @-webkit-keyframes rzp-rot {
+                to {
+                    -webkit-transform: rotate(360deg);
+                }
+            }
+
+            .razorpay-container>iframe {
+                min-height: 100% !important;
+            }
+        </style>
+        <div class="razorpay-backdrop"
+            style="min-height: 100%; transition: all 0.3s ease-out 0s; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%;">
+            <span
+                style="text-decoration: none; background: rgb(214, 68, 68); border: 1px dashed white; padding: 3px; opacity: 0; transform: rotate(45deg); transition: opacity 0.3s ease-in 0s; font-family: lato, ubuntu, helvetica, sans-serif; color: white; position: absolute; width: 200px; text-align: center; right: -50px; top: 50px;">Test
+                Mode</span>
+        </div><iframe
+            style="opacity: 1; height: 100%; position: relative; background: none; display: block; border: 0 none transparent; margin: 0px; padding: 0px; z-index: 2;"
+            allowtransparency="true" frameborder="0" width="100%" height="100%"
+            src="https://api.razorpay.com/v1/checkout/public?traffic_env=production&amp;build=9569ad5362495793d8a15cd72442d77b5762ab8c&amp;modern=1&amp;unified_lite=1"
+            class="razorpay-checkout-frame" allow="otp-credentials"></iframe>
+    </div>
+
+
+
+
+    <!-- Include Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.3/axios.min.js"
+        integrity="sha512-JWQFV6OCC2o2x8x46YrEeFEQtzoNV++r9im8O8stv91YwHNykzIS2TbvAlFdeH0GVlpnyd79W0ZGmffcRi++Bw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+
+    <!-- Include Bootstrap CSS (if needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- Include jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./expense.js"></script>
+</body>
+
+
+</html>

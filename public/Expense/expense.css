@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    font-family: 'Lora', serif;
+    padding-top: 200px;
+    padding-bottom: 100px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+
+
+.expense-form {
+    /* background-color: #2B2A4C; */
+    background: #3a6186;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #89253e, #3a6186);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #89253e, #3a6186);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.expense-list {
+    
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #89253e, #3a6186);
+    
+    background: linear-gradient(to right, #89253e, #3a6186);
+    
+
+
+    margin-top: 20px;
+    /* background-color: #B31312; */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.expense-item {
+    /* background-color: #EA906C; */
+    background: #C33764;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1D2671, #C33764);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1D2671, #C33764);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid white;
+}
+
+.delete-btn {
+    color: #dc3545;
+    cursor: pointer;
+}
+
+.total-amount {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* Navbar */
+
+#nav-links,#buttons{
+    font-family: 'Playfair Display SC', serif;
+}
+
+#expense-logo{
+    font-family: 'Cinzel', serif;
+    
+}
+#profilediv{
+    width: 90%;
+    margin: 0 auto;
+}
