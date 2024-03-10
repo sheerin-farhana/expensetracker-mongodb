@@ -29,35 +29,3 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
-
-// const Sequelize = require('sequelize');
-// const sequelize = require('../utils/database');
-
-// const User = sequelize.define('Users', {
-//     id: {
-//         type: Sequelize.INTEGER,
-//         primaryKey: true,
-//         autoIncrement: true,
-//         allowNull:false
-//     },
-//     Name: {
-//         type: Sequelize.STRING,
-//         allowNull:false,
-//     },
-//     Email: {
-//         type: Sequelize.STRING,
-//         allowNull:false,
-//     },
-//     Phone: {
-//         type: Sequelize.STRING,
-//         allowNull:false,
-//     },
-//     Password: {
-//         type: Sequelize.STRING,
-//         allowNull:false,
-//     },
-//     Ispremiumuser: Sequelize.BOOLEAN,
-//     TotalExpenses: Sequelize.FLOAT,
-// });
-
-// module.exports = { User };

@@ -15,7 +15,7 @@ const showLeaderboard = async (req, res, next) => {
       },
       {
         $sort: {
-          TotalExpenses: -1,
+          totalexpense: -1,
         },
       },
     ]);
